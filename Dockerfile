@@ -12,7 +12,7 @@
 
 # Modified
 
-FROM amazonlinux:latest@sha256:7f12c425c74940d60c035daa77c34696bb961d8ebc81fd7897f4dedf696656cd
+FROM amazonlinux:latest@sha256:44eadbb7e7dd8123a74cc57c6dcc6412edeac8f1cc236f92f9cb668b78791d09
 
 RUN yum install python27-pip -y && yum clean all \
     && rm -rf /var/cache/yum \
