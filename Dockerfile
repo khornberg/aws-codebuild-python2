@@ -12,9 +12,13 @@
 
 # Modified
 
-FROM amazonlinux:latest@sha256:7f12c425c74940d60c035daa77c34696bb961d8ebc81fd7897f4dedf696656cd
+FROM amazonlinux:1
 
-RUN yum install python27-pip -y && yum clean all \
+RUN curl -sL -o /tmp/node.rpm 'https://rpm.nodesource.com/pub_0.12/el/7/x86_64/nodejs-0.12.18-1nodesource.el7.centos.x86_64.rpm' \
+    && yum groupinstall -y 'Development Tools' \
+    && yum install python27-pip openssh-clients git gcc libxml2-devel libyaml-devel libxslt-devel zlib-devel libtiff-devel libjpeg-devel zlib-devel freetype-devel lcms2-devel libwebp-devel tcl-devel libxslt python27-devel bzip2 freetype fontconfig python26 -y \
+    && yum clean all \
+    && rpm -i --nosignature --force /tmp/node.rpm \
     && rm -rf /var/cache/yum \
     && pip install virtualenv  --no-cache-dir
 
