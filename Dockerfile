@@ -12,7 +12,7 @@
 
 # Modified
 
-FROM amazonlinux:1
+FROM amazonlinux:2022
 
 RUN curl -sL -o /tmp/node.rpm 'https://rpm.nodesource.com/pub_0.12/el/7/x86_64/nodejs-0.12.18-1nodesource.el7.centos.x86_64.rpm' \
     && yum groupinstall -y 'Development Tools' \
